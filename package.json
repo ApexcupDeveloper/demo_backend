@@ -2,7 +2,7 @@
   "name": "demo_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.ts",
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
