@@ -40,7 +40,7 @@ app.use("/api/v1/products", productRouter);
  * Server Activation
  */
 app.use((req, res) => {
-	res.status(404).send({ err: 'We can not find what you are looking for' })
+	res.send("<h1>Welcome to your simple server! Awesome right</h1>");
 })
 
 app.listen(process.env.PORT || 5000, () => {
