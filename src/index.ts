@@ -9,6 +9,7 @@ import helmet from "helmet";
 import { productRouter } from "./images/products.router";
 import mongoose from "mongoose";
 import path from "path";
+import { config } from './config';
 
 dotenv.config();
 
@@ -16,17 +17,11 @@ dotenv.config();
  * App Variables
  */
 
-if (!process.env.PORT || !process.env.DB) {
-	process.exit(1);
-}
-
 const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true }
 mongoose
-	.connect(process.env.DB, dbConfig)
+	.connect(config.DB, dbConfig)
 	.then(() => console.log('Connected to MongoDB'))
 	.catch((err) => console.log(err))
-
-const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const app = express();
 
@@ -48,6 +43,6 @@ app.use((req, res) => {
 	res.status(404).send({ err: 'We can not find what you are looking for' })
 })
 
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}`);
+app.listen(process.env.PORT || 5000, () => {
+	console.log(`Listening on port ${process.env.PORT || 5000}`);
 });
