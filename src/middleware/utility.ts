@@ -1,8 +1,9 @@
 import sharp from "sharp";
+import path from "path";
 
 export const getImageSize = async (image: string): Promise<{ width: number, height: number }> => {
-    let tempImage = 'tempImage.png'
-    const response: any = await sharp(image).resize().toFile(tempImage)
+    let tempImage1 = path.join(__dirname, '../../tempImage1.png')
+    const response: any = await sharp(image).resize().toFile(tempImage1)
         .then((res) => {
             return res;
         }).catch((err) => {
@@ -15,7 +16,7 @@ export const getImageSize = async (image: string): Promise<{ width: number, heig
 }
 
 export const resizeImage = async (image: string, width: number, height: number): Promise<string> => {
-    let tempImage = 'tempImage.png'
+    let tempImage = path.join(__dirname, '../../tempImage.png')
     const response: any = await sharp(image).resize(width, height, {
         fit: 'fill'
     }).toFile(tempImage)

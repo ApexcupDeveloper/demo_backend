@@ -14,9 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resizeImage = exports.getImageSize = void 0;
 const sharp_1 = __importDefault(require("sharp"));
+const path_1 = __importDefault(require("path"));
 const getImageSize = (image) => __awaiter(void 0, void 0, void 0, function* () {
-    let tempImage = 'tempImage.png';
-    const response = yield sharp_1.default(image).resize().toFile(tempImage)
+    let tempImage1 = path_1.default.join(__dirname, '../../tempImage1.png');
+    const response = yield sharp_1.default(image).resize().toFile(tempImage1)
         .then((res) => {
         return res;
     }).catch((err) => {
@@ -29,7 +30,7 @@ const getImageSize = (image) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getImageSize = getImageSize;
 const resizeImage = (image, width, height) => __awaiter(void 0, void 0, void 0, function* () {
-    let tempImage = 'tempImage.png';
+    let tempImage = path_1.default.join(__dirname, '../../tempImage.png');
     const response = yield sharp_1.default(image).resize(width, height, {
         fit: 'fill'
     }).toFile(tempImage)
