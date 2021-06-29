@@ -3,7 +3,7 @@
  */
 
 import * as dotenv from "dotenv";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { productRouter } from "./images/products.router";
@@ -39,7 +39,7 @@ app.use("/api/v1/products", productRouter);
 /**
  * Server Activation
  */
-app.use((req, res) => {
+app.use((req: Request, res: Response) => {
 	res.send("<h1>Welcome to your simple server! Awesome right</h1>");
 })
 
