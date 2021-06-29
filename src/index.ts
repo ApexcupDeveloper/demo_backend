@@ -17,7 +17,7 @@ dotenv.config();
  */
 
 if (!process.env.PORT || !process.env.DB) {
-    process.exit(1);
+	process.exit(1);
 }
 
 const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true }
@@ -37,12 +37,17 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+
 app.use("/api/v1/products", productRouter);
 /**
  * Server Activation
  */
+app.use((req, res) => {
+	res.status(404).send({ err: 'We can not find what you are looking for' })
+})
 
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+	console.log(`Listening on port ${PORT}`);
 });
