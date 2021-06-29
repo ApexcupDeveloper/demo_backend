@@ -1,0 +1,39 @@
+{
+  "name": "demo_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fs": "*",
+    "helmet": "^4.6.0",
+    "merge-images": "^2.0.0",
+    "mongoose": "^5.13.0",
+    "multer": "^1.4.2",
+    "path": "^0.12.7",
+    "sharp": "^0.28.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.12",
+    "@types/helmet": "^4.0.0",
+    "@types/merge-images": "^1.2.0",
+    "@types/multer": "^1.4.6",
+    "@types/node": "^15.12.5",
+    "@types/sharp": "^0.28.3",
+    "@types/uuid": "^8.3.0",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.3.4"
+  }
+}
